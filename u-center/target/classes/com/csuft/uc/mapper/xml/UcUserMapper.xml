@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csuft.uc.mapper.UcUserMapper">
+
+<select id="getUserByAccount" resultType="com.csuft.uc.entity.UcUser">
+    select *
+    from `uc_user` uu
+    left join `uc_user_info` uui ON  uui.`user_id`= uu.`id`
+    where uu.`user_name` = #{name} OR uui.`email` = #{name};
+</select>
+
+</mapper>

@@ -1,0 +1,32 @@
+server:
+  port: 40100
+spring:
+  applicatin:
+    name: u-center
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ai_study_sys?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false&useUnicode=true
+    username: root
+    password: 123abc
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled=true:redis:
+  password: 123456
+  port: 6379
+  host: 192.168.220.120
+mybatis-plus:
+  global-config:
+    banner: true   # 不显示banner
+    db-column-underline: true   # 数据库字段采用下划线方式
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      db-type: mysql
+      logic-delete-value: 1   # 逻辑删除
+      logic-not-delete-value: 0
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/csuft/uc/mapper/xml/*xml
+
