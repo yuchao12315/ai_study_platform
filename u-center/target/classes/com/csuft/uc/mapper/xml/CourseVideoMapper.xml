@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csuft.uc.mapper.CourseVideoMapper">
+    <select id="getCourseVideoPath" resultType="com.csuft.uc.entity.CourseVideo">
+        select *
+        from `course_video` uu
+        where uu.`course_id` = #{courseName} and uu.`teacher_id` = #{teacherName};
+    </select>
+</mapper>

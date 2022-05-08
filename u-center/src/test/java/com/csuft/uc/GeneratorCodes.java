@@ -32,7 +32,7 @@ public class GeneratorCodes {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("ucenter");
+        pc.setModuleName("uc");
         pc.setParent("com.csuft");
         pc.setController("controller");
         pc.setMapper("mapper");
@@ -48,7 +48,7 @@ public class GeneratorCodes {
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
         //多个表的时候，写多个就可以
-        strategy.setInclude("uc_app","uc_images","uc_login_record","uc_register_info","uc_settings","uc_token","uc_user","uc_user_info");
+        strategy.setInclude("student_course");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);

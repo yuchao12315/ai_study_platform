@@ -12,7 +12,7 @@ import java.util.Date;
 
 /**
  * <p>
- * uc_settings 
+ * uc_settings
  * </p>
  *
  * @author yc
@@ -29,6 +29,7 @@ public class UcSettings implements Serializable {
     private String id;
 
     @ApiModelProperty(value = "键")
+    @TableField("`key`")
     private String key;
 
     @ApiModelProperty(value = "值")

@@ -2,6 +2,7 @@ package com.csuft.uc.controller.portal;
 
 
 import com.csuft.common.response.R;
+import com.csuft.uc.entity.UcUser;
 import com.csuft.uc.service.IUcUserService;
 import com.csuft.uc.vo.LoginVo;
 import com.csuft.uc.vo.RegisterVo;
@@ -49,6 +50,11 @@ public class UcUserController {
     @PutMapping("/uc/user/reset")
     public  R resetPassword(@RequestParam("mailCode") String mailCode, @RequestBody RegisterVo registerVo){
         return  userService.resetPassword(mailCode,registerVo);
+    }
+
+    @PutMapping("/uc/user/updateUserInfo")
+    public  R updateUserInfo(@RequestBody UcUser user){
+        return  userService.updateUserInfo(user);
     }
 }
 

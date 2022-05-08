@@ -13,7 +13,7 @@ import java.util.Date;
 
 /**
  * <p>
- * uc_user 
+ * uc_user
  * </p>
  *
  * @author yc
@@ -21,7 +21,7 @@ import java.util.Date;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="UcUser对象", description="uc_user ")
+@ApiModel(value = "UcUser对象", description = "uc_user ")
 public class UcUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,11 +38,17 @@ public class UcUser implements Serializable {
     @ApiModelProperty(value = "密码")
     private String password;
 
+    @ApiModelProperty(value = "手机号")
+    private String phoneNum;
+
+    @ApiModelProperty(value = "邮箱")
+    private String email;
+
     @ApiModelProperty(value = "盐")
     private String salt;
 
     @ApiModelProperty(value = "等级")
-    private String lev;
+    private Integer lev;
 
     @ApiModelProperty(value = "性别")
     private String sex;
@@ -68,8 +74,6 @@ public class UcUser implements Serializable {
     @ApiModelProperty(value = "更新时间")
     private Date updateTime;
 
+    @ApiModelProperty(value = "状态，0表示正常，1表示禁止用户")
     private Integer type;
-    @ApiModelProperty(value = "邮箱")
-    private String email;
-
 }

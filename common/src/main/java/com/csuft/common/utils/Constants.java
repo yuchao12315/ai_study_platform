@@ -10,10 +10,17 @@ public interface Constants {
         String DEFAULT_STATUS = "1";
         String DISABLE_STATUS = "0";
         String KEY_TOKEN = "key_token_";
+        String KEY_ADMIN_INIT_STATE = "admin_init_state";
+        String KEY_TEACHER_INIT_STATE = "teacher_init_state";
         String KEY_STUDY_TOKEN = "study_token";
         String KEY_SALT = "key_salt_";
+        String SUPER_ROLE_LABEL = "超级管理员" ;
+        String SUPER_ROLE_NAME ="SUPER_ADMIN";
+        String TEACHER_ROLE_LABEL = "老师" ;
+        String TEACHER_ROLE_NAME ="TEACHER";
     }
-    interface Millions{
+
+    interface Millions {
         long SECOND = 1000;
         long MIN = 60 * SECOND;
         long HOUR = MIN * 60;
@@ -30,4 +37,6 @@ public interface Constants {
         int TWO_HOUR = HOUR * 2;
         int DAY = HOUR * 24;
     }
+
+    int DEFAULT_SIZE = 1;
 }

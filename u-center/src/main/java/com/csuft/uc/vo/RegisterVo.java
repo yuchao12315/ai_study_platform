@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class RegisterVo {
+
+    private  String id;
     /**
      * 用户名
      */
@@ -18,7 +20,7 @@ public class RegisterVo {
      */
     public String nickname;
     /**
-     * 用户类型  1 教师  2 家长  3 管理员
+     * 用户类型  1学生 2教师  3 管理员
      */
     public int type;
 

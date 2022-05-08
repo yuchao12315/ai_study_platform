@@ -2,11 +2,64 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.csuft.uc.mapper.UcUserMapper">
 
-<select id="getUserByAccount" resultType="com.csuft.uc.entity.UcUser">
-    select *
-    from `uc_user` uu
-    left join `uc_user_info` uui ON  uui.`user_id`= uu.`id`
-    where uu.`user_name` = #{name} OR uui.`email` = #{name};
-</select>
+    <select id="getUserByAccount" resultType="com.csuft.uc.entity.UcUser">
+        select *
+        from `uc_user` uu
+                 left join `uc_user_info` uui ON uui.`user_id` = uu.`id`
+        where uu.`user_name` = #{name} OR uui.`email` = #{name};
+    </select>
+
+    <select id="listUser" resultType="com.csuft.uc.vo.UserAdminVo">
+        select
+        uu.`id`,uu.`user_name`,uu.`phone_num`,uu.`email`,uu.`lev`,uu.`avatar`,uu.`status`,uu.`sex`,uu.`create_time`
+        from `uc_user` uu
+        left join `uc_user_info` uui ON uui.`id`= uu.`id`
+        <where>
+            1=1
+            <if test="email!=null and email!=''">
+                and uu.`email` = #{email}
+            </if>
+            <if test="phone!=null and phone!=''">
+                and uu.`phone_num` = #{phone}
+            </if>
+            <if test="userId!=null and userId!=''">
+                and uu.`id` = #{userId}
+            </if>
+            <if test="status!=null and status!=''">
+                and uu.`status` = #{status}
+            </if>
+        </where>
+        ORDER BY uu.`create_time` DESC
+        LIMIT #{offset},#{size}
+    </select>
+
+    <select id="listUserCount" resultType="java.lang.Long">
+        select count(uu.`id`)
+        from `uc_user` uu
+        <where>
+            1=1
+            <if test="email!=null and email!=''">
+                and uu.`email` = #{email}
+            </if>
+            <if test="phone!=null and phone!=''">
+                and uu.`phone_num` = #{phone}
+            </if>
+            <if test="userId!=null and userId!=''">
+                and uu.`id` = #{userId}
+            </if>
+            <if test="status!=null and status!=''">
+                and uu.`status` = #{status }
+            </if>
+        </where>
+
+    </select>
+
+    <select id="getUserVo" resultType="com.csuft.uc.vo.UserVo">
+        SELECT GROUP_CONCAT(ur.`name`) AS roles,uu.`id`,uu.`sex`,uu.`status`,uu.`avatar`,uu.`user_name`
+        FROM `uc_user` uu
+        LEFT JOIN `uc_user_role` uur ON uu.`id` = uur.`user_id`
+        LEFT JOIN `uc_role` ur ON uur.`role_id` = ur.`id`
+        where uu.`id` = #{userId};
+    </select>
 
 </mapper>

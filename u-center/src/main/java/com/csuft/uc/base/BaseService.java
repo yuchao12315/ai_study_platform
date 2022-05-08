@@ -20,4 +20,9 @@ public class BaseService<M extends BaseMapper<B>, B> extends ServiceImpl<M, B> {
         HttpServletResponse response = requestAttributes.getResponse();
         return response;
     }
+
+    protected int checkPage(int page) {
+        if (page < 1) page = 1;
+        return page;
+    }
 }

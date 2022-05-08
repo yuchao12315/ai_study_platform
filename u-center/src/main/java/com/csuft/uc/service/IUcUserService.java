@@ -25,4 +25,16 @@ public interface IUcUserService extends IService<UcUser> {
     R doLogout();
 
     R resetPassword(String mailCode, RegisterVo registerVo);
+
+    R listUser(int page, String phone, String email, String userName, String userId, String status);
+
+    R disableUser(String userId);
+
+    R resetPasswordByUid(String userId, RegisterVo registerVo);
+
+    R initAdminAccount(RegisterVo registerVo);
+
+    R initTeacherAccount(RegisterVo registerVo);
+
+    R updateUserInfo(UcUser user);
 }

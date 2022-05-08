@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csuft.uc.mapper.CourseMapper">
+    <select id="listCourse" resultType="com.csuft.uc.entity.Course">
+        SELECT *
+        FROM course;
+    </select>
+
+    <select id="listStudentCourse" resultType="com.csuft.uc.vo.StudentCourseVo">
+        select *
+        from `student_course` uu
+        where uu.`user_name` = #{userName}
+    </select>
+
+
+</mapper>
